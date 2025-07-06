@@ -8,10 +8,15 @@ class AppThemeMode {
     fontFamily: 'DMSans',
     colorScheme: ColorScheme.light(primary: lightBg),
     cardColor: white,
+    canvasColor: lightBg,
     primaryColor: black,
+    iconTheme: IconThemeData(
+      color: Color(0xff4318FF)
+    ),
     textSelectionTheme: TextSelectionThemeData(
     ),
-    primaryColorLight: white,
+    primaryColorLight: cardText,
+    dividerColor: lightBg,
     bottomNavigationBarTheme:
     BottomNavigationBarThemeData(backgroundColor: white),
     highlightColor: white,
@@ -23,8 +28,13 @@ class AppThemeMode {
     fontFamily: 'DMSans',
     scaffoldBackgroundColor: darkBg,
     cardColor: card,
+    canvasColor: cardWithOpacity,
+    iconTheme: IconThemeData(
+        color: white
+    ),
     colorScheme: ColorScheme.dark(primary: darkBg),
     primaryColor: white,
+    primaryColorLight: white,
     dividerColor: white,
   );
 }

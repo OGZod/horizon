@@ -7,9 +7,7 @@ import '../../core/presentation/widgets/icons/horizon_icons.dart';
 import 'custom_nav_tile.dart';
 
 class Sidebar extends StatelessWidget {
-  const Sidebar({
-    super.key,
-  });
+  const Sidebar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,15 +24,27 @@ class Sidebar extends StatelessWidget {
               child: RichText(
                 text: TextSpan(
                   children: [
-                    TextSpan(text: 'HORIZON ', style: poppinsBold),
-                    TextSpan(text: 'FREE', style: poppinsRegular),
+                    TextSpan(
+                      text: 'HORIZON ',
+                      style: poppinsBold.copyWith(
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
+                    TextSpan(
+                      text: 'FREE',
+                      style: poppinsRegular.copyWith(
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
                   ],
                 ),
               ),
             ),
           ),
-          Divider(color: white),
-    
+          Divider(
+            color: Theme.of(context).dividerColor,
+          ),
+
           Expanded(
             child: SingleChildScrollView(
               padding: EdgeInsets.symmetric(vertical: 24),
@@ -74,7 +84,7 @@ class Sidebar extends StatelessWidget {
               ),
             ),
           ),
-    
+
           Center(child: UpgradeProCard()),
         ],
       ),

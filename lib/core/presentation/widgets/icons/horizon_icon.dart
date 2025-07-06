@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class HorizonIcon extends StatelessWidget {
@@ -16,7 +17,7 @@ class HorizonIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return SvgPicture.asset(
       iconData,
-      color: color,
+      color: color?? Theme.of(context).iconTheme.color,
       width: size,
       fit: BoxFit.fitWidth,
     );

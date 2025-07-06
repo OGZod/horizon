@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:horizon/presentation/screens/dashboard/presentation/dashboard_screen.dart';
+import 'package:horizon/presentation/screens/nft_marketplace/presentation/nft_marketplace_screen.dart';
 
 import '../../config/locator.dart';
 import '../../config/navigation/navigation_service.dart';
@@ -26,11 +28,7 @@ class HorizonFreeScreen extends StatelessWidget {
                   children: [
                     Header(),
                     Expanded(
-                      child: Center(
-                        child: Text(
-                          locator<NavigationService>().currentIndex.toString(),
-                        ),
-                      ),
+                      child: _getBodyWidget(),
                     ),
                     Footer(),
                   ],
@@ -42,6 +40,22 @@ class HorizonFreeScreen extends StatelessWidget {
       ),
     );
   }
+  Widget _getBodyWidget() {
+    switch (locator<NavigationService>().currentIndex) {
+      case 0:
+        return DashboardScreen();
+      case 1:
+        return NftMarketplaceScreen();
+      default:
+        return Center(
+          child: Text(
+            locator<NavigationService>().currentIndex.toString(),
+          ),
+        );
+    }
+  }
+
 }
+
 
 

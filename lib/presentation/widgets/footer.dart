@@ -14,18 +14,28 @@ class Footer extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            '© 2022 Horizon UI. All Rights Reserved. Made with love by Simmmple!',
-            style: medium.copyWith(fontSize: 14),
+          Expanded(
+            flex: 1,
+            child: Text(
+              '© 2022 Horizon UI. All Rights Reserved. Made with love by Simmmple!',
+              overflow: TextOverflow.ellipsis,
+              softWrap: true,
+              style: medium.copyWith(fontSize: 14),
+            ),
           ),
-          Row(
-            spacing: 42,
-            children: [
-              FooterOption(title: 'Marketplace',),
-              FooterOption(title: 'License',),
-              FooterOption(title: 'Terms of Use',),
-              FooterOption(title: 'Blog',),
-            ],
+          SizedBox(width: 24,),
+          Expanded(
+            flex: 1,
+            child: Wrap(
+              spacing: 16,
+              alignment: WrapAlignment.spaceEvenly,
+              children: [
+                FooterOption(title: 'Marketplace',),
+                FooterOption(title: 'License',),
+                FooterOption(title: 'Terms of Use',),
+                FooterOption(title: 'Blog',),
+              ],
+            ),
           ),
         ],
       ),

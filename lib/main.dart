@@ -16,14 +16,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Horizon',
-      debugShowCheckedModeBanner: false,
-      themeMode: locator<ThemeService>().themeMode,
-      darkTheme: AppThemeMode.darkTheme,
-      theme: AppThemeMode.lightTheme,
-      home: HorizonFreeScreen(),
+    return ListenableBuilder(
+      listenable: locator<ThemeService>(),
+      builder: (context, child) {
+        return MaterialApp(
+          title: 'Horizon',
+          debugShowCheckedModeBanner: false,
+          themeMode: locator<ThemeService>().themeMode,
+          darkTheme: AppThemeMode.darkTheme,
+          theme: AppThemeMode.lightTheme,
+          home: HorizonFreeScreen(),
+        );
+      },
     );
   }
 }
-

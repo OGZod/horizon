@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:horizon/config/theme/theme_service.dart';
 
 import '../../config/locator.dart';
 import '../../config/navigation/navigation_service.dart';
-import '../../config/theme/app_colors.dart';
 import '../../config/theme/text_styles.dart';
 import '../../core/presentation/widgets/icons/horizon_icon.dart';
 import '../../core/presentation/widgets/icons/horizon_icons.dart';
 
 class Header extends StatelessWidget {
-  const Header({
-    super.key,
-  });
+  const Header({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +35,7 @@ class Header extends StatelessWidget {
           height: 61,
           padding: EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: card,
+            color: Theme.of(context).cardColor,
             borderRadius: BorderRadiusGeometry.circular(48),
           ),
           child: Row(
@@ -45,14 +43,11 @@ class Header extends StatelessWidget {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: darkBg,
+                  color: Theme.of(context).scaffoldBackgroundColor,
                   borderRadius: BorderRadius.circular(24),
                 ),
                 width: 214,
-                padding: EdgeInsets.symmetric(
-                  horizontal: 24,
-                  vertical: 8,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 8),
                 child: Row(
                   spacing: 8,
                   children: [
@@ -61,9 +56,7 @@ class Header extends StatelessWidget {
                       child: TextField(
                         decoration: InputDecoration.collapsed(
                           hintText: 'Search',
-                          hintStyle: regular.copyWith(
-                            fontSize: 14,
-                          ),
+                          hintStyle: regular.copyWith(fontSize: 14),
                         ),
                       ),
                     ),
@@ -71,7 +64,12 @@ class Header extends StatelessWidget {
                 ),
               ),
               HorizonIcon(HousifyIcons.notification),
-              HorizonIcon(HousifyIcons.moonSolid,size: 20,),
+              InkWell(
+                onTap: () async {
+                  await locator<ThemeService>().toggleTheme();
+                },
+                child: HorizonIcon(HousifyIcons.moonSolid, size: 20),
+              ),
               HorizonIcon(HousifyIcons.infoOutline),
               ClipOval(
                 child: Image.asset(

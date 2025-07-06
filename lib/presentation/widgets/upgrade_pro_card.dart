@@ -51,7 +51,7 @@ class UpgradeProCard extends StatelessWidget {
               width: 94,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(color: card, width: 8),
+                border: Border.all(color: Theme.of(context).cardColor, width: 8),
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
