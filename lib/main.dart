@@ -1,5 +1,7 @@
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:horizon/config/theme/app_colors.dart';
 import 'package:horizon/presentation/screens/horizon_free_screen.dart';
 import 'package:window_manager/window_manager.dart';
 
@@ -9,21 +11,10 @@ import 'config/theme/theme_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await windowManager.ensureInitialized();
+  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
+    await windowManager.ensureInitialized();
+  }
 
-  // WindowOptions windowOptions =  WindowOptions(
-  //   size: Size.infinite,
-  //   minimumSize: Size(800, 600),
-  //   center: true,
-  //   backgroundColor: lightBg,
-  //   skipTaskbar: false,
-  //   titleBarStyle: TitleBarStyle.normal,
-  // );
-
-  // windowManager.waitUntilReadyToShow(windowOptions, () async {
-  //   await windowManager.show();
-  //   await windowManager.focus();
-  // });
   await setupInitialLocator();
   runApp(const MyApp());
 }

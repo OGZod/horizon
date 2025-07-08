@@ -48,6 +48,14 @@ dev_dependencies:
   flutter_launcher_icons: ^0.14.4
   msix: ^2.7.3
 
+msix_config:
+  display_name: Horizon
+  publisher_display_name: Oben G
+  identity_name: com.ogZod.horizon
+  msix_version: 1.0.0.0
+  logo_path: assets/icons/horizon_logo.png
+  sign_msix: false
+
 flutter_launcher_icons:
   windows:
     generate: true
